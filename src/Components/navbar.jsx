@@ -4,23 +4,20 @@ import { NavLink, Link } from "react-router-dom";
 import logoBird from "../Images/origami-bird.png";
 
 class NavBar extends Component {
-
-  
-  logOut(){
-    firebase.auth().signOut()
+  logOut() {
+    firebase.auth().signOut();
   }
-
 
   render() {
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
           <div className="container">
-            <Link className="navbar-brand" to="/">
-              <img src={logoBird} alt=""/> 
+            <Link className="navbar-brand" to="/" style={{display:"flex", alignItems:"center", marginRight:"auto"}} >
+              <img src={logoBird} alt="" />
             </Link>
             <button
-              className="navbar-toggler"
+              className="navbar-toggler toggler-example"
               type="button"
               data-toggle="collapse"
               data-target="#navbarResponsive"
@@ -31,10 +28,15 @@ class NavBar extends Component {
               <span className="navbar-toggler-icon" />
             </button>
             <div className="collapse navbar-collapse" id="navbarResponsive">
-              <ul className="navbar-nav ml-auto">
+              <ul className="navbar-nav ml-auto" role="tablist">
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/">
-                    Captures
+                  <NavLink className="nav-link" exact to="/">
+                    Faire une capture
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/captures">
+                    Mes captures
                   </NavLink>
                 </li>
                 <li className="nav-item">

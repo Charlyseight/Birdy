@@ -7,8 +7,8 @@ const NavLogo = () => {
         <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
           <div className="container">
-            <Link className="navbar-brand" to="/">
-              <img src={logoBird} alt=""/> 
+            <Link className="navbar-brand" to="/" style={{display:"flex", alignItems:"center"}}>
+              <img src={logoBird} alt="" width="60" height="auto"/> 
             </Link>
           </div>
         </nav>

@@ -4,11 +4,7 @@ import firebase from "firebase";
 class allBirds extends Component {
     state = {
         encyclopedie: [],
-        loading: true,
-        data : {
-          name : "",
-          picture : ""
-        }
+        loading: true
       };
       componentDidMount() {
         const ref = firebase.database().ref("Encyclopédie");
@@ -20,14 +16,6 @@ class allBirds extends Component {
         if (this.state.loading) {
           return <p className="container" style={{marginTop: "8em"}}>Chargement...</p>;
         }
-        // const encyclopedie = firebase.database().ref("Encyclopédie");
-        // encyclopedie.on("child_added", (bird) => {
-        //   let getBird = bird.val();
-        //   this.setState({data.name : })
-        //   return (
-        //     <p>{getBird.name}</p>
-        //   )
-        //})
         const birds = this.state.encyclopedie.map((bird, index) => {
           return(
             <div key={index}>
@@ -35,7 +23,7 @@ class allBirds extends Component {
               <img
                 src={bird.image}
                 alt=""
-                style={{width:"370px", height:"auto"}}
+                style={{width:"370px", height:"270px"}}
                 className="img-thumbnail"
               />
               <p className="post-title">{bird.nom}</p>

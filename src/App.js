@@ -10,6 +10,8 @@ import NoRepriseForm from "./Components/norepriseform";
 import NavLogo from "./Components/navLogo";
 import allBirds from "./Components/allbirds";
 import Users from "./Components/users";
+import Captures from "./Components/captures";
+import EditCapture from "./Components/editCap";
 import firebase from "firebase";
 import config from "./config";
 import "bootstrap/dist/css/bootstrap.css";
@@ -59,6 +61,8 @@ class App extends Component {
             <Route path="/map" component={MapBirdy} />
             <Route path="/users" component={Users} />
             <Route path="/allbirds/" component={allBirds} />
+            <Route path="/captures" exact component={Captures} />
+            <Route path="/captures/:id" component={EditCapture} />
             <Route path="/not-found" exact component={NotFound} />
             <Redirect to="/" />
           </Switch>

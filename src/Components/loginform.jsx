@@ -7,10 +7,7 @@ import { NavLink } from "react-router-dom";
 class LoginForm extends Form {
   state = {
     data: { email: "", password: "" },
-    errors: {},
-    fautes: {
-      message: ""
-    }
+    errors: {}
   };
   schema = {
     email: Joi.string()
@@ -30,27 +27,9 @@ class LoginForm extends Form {
       .signInWithEmailAndPassword(email, password)
       .then(u => {})
       .catch(error => {
-        const fautes = {...this.state.fautes};
-        if(error.message){
-          fautes.message = error.message;
-        }else{
-          fautes.message = "";
-        }
-        console.log(fautes);
-        this.setState({fautes});
+        console.log(error);
       });
   };
-
-  noUser = () => {
-    if(this.state.fautes.message) {
-      return(
-      <p className="alert alert-danger">
-        {this.state.fautes.message}
-      </p>
-      )
-    }
-    
-  }
 
   render() {
     return (
@@ -68,9 +47,6 @@ class LoginForm extends Form {
             Birdy
           </p>
         <h1>Se connecter</h1>
-        <React.Fragment>
-          {this.noUser()}
-        </React.Fragment>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("email", "Votre email")}
           {this.renderInput("password", "Mot de passe", "password")}
